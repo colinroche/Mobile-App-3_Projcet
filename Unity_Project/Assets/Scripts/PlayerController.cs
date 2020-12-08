@@ -58,7 +58,14 @@ public class PlayerController : MonoBehaviour
 
         if (other.tag == "Top")
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-        }        
+            transform.rotation = Quaternion.Euler(-10, 0, 0);
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY;
+            transform.Translate(Vector3.down * Time.deltaTime * zSpeed);
+        }
+
+        if (other.tag == "LevelChange")
+        {
+            FindObjectOfType<TrackSpawner>().LevelChange();
+        }    
     }
 }

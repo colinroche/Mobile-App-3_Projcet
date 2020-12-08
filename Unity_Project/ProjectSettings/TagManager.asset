@@ -8,6 +8,7 @@ TagManager:
   - Track
   - Top
   - Obstacle
+  - LevelChange
   layers:
   - Default
   - TransparentFX

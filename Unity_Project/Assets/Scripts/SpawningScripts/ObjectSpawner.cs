@@ -11,14 +11,14 @@ public class ObjectSpawner : MonoBehaviour
 
     private float offset = 80.0f;
 
-    private int pickUpType = 0;
+    private int powerUpType = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         // Getting start and end points to spawn objects on track
-        trackStart = GameObject.Find("Track (1)").transform;
-        trackEnd = GameObject.Find("Track (8)").transform;
+        trackStart = GameObject.Find("Track (0)").transform;
+        trackEnd = GameObject.Find("Track (7)").transform;
     }
 
     // Spawning objects random between left, middle and right tracks
@@ -47,35 +47,44 @@ public class ObjectSpawner : MonoBehaviour
         } 
     }
 
-    public void CoinSpawner()
+    public void CoinSpawner(int numCoins)
     {
         Transform coins;
-        int numCoins = 5;
         coins = GameObject.Find("Coins").transform;
         Spawner(coins, numCoins);
     }
 
-    public void CarSpawner()
-    {
-        Transform cars;
-        int numCars = 3;
-        cars = GameObject.Find("Car").transform;
-        Spawner(cars, numCars);
-    }
-
-    public void HeartSpawner()
+    public void HeartSpawner(int numHearts)
     {
         Transform hearts;
-        int numHearts = 1;
         hearts = GameObject.Find("Heart").transform;
         Spawner(hearts, numHearts);
     }
 
-    // Insures that the same PowerUp is not spawned consecutively
-    public void PowerUpSpawner()
+    public void CarSpawner(int numCars)
     {
-        int pickUpNum = 1;
-        
+        Transform cars;
+        cars = GameObject.Find("Car").transform;
+        Spawner(cars, numCars);
+    }
+
+    public void BusSpawner(int numBuses)
+    {
+        Transform buses;
+        buses = GameObject.Find("Bus").transform;
+        Spawner(buses, numBuses);
+    }
+
+    public void TruckSpawner(int numTrucks)
+    {
+        Transform trucks;
+        trucks = GameObject.Find("Truck").transform;
+        Spawner(trucks, numTrucks);
+    }
+
+    // Insures that the same PowerUp is not spawned consecutively
+    public void PowerUpSpawner(int powerUpNum)
+    {
         Transform shields;
         shields = GameObject.Find("Shield").transform;
 
@@ -85,20 +94,20 @@ public class ObjectSpawner : MonoBehaviour
         Transform boosts;
         boosts = GameObject.Find("Boost").transform;
 
-        if (pickUpType % 3 == 0)
+        if (powerUpType % 3 == 0)
         {
-            Spawner(shields, pickUpNum);
-            pickUpType++;
+            Spawner(shields, powerUpNum);
+            powerUpType++;
         }
-        else if (pickUpType % 3 == 1)
+        else if (powerUpType % 3 == 1)
         {
-            Spawner(coinMulti, pickUpNum);
-            pickUpType++;
+            Spawner(coinMulti, powerUpNum);
+            powerUpType++;
         }
         else
         {
-            Spawner(boosts, pickUpNum);
-            pickUpType++;
+            Spawner(boosts, powerUpNum);
+            powerUpType++;
         }
     }
 }
