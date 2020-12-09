@@ -9,12 +9,14 @@ public class SpawnLevel : MonoBehaviour
     
     private int numCoins = 0;
     private int numHearts = 0;
-    private int numCars = 0;
+    private int numVehicle = 0;
 
     private int powerUpNum = 0;
 
     private int roadObjectCheck = 0;
     private int powerUpCheck = 0;
+    private int archwayCheck = 0;
+    private int damagedCheck = 0;
 
     void Start()
     {
@@ -26,13 +28,20 @@ public class SpawnLevel : MonoBehaviour
     {
         numCoins = 5;
         numHearts = 1;
-        numCars = 1;
+        numVehicle = 2;
         powerUpNum = 1;
+
         if (roadObjectCheck != 4 || roadObjectCheck != 8)
         {
             objectSpawner.CoinSpawner(numCoins);
             objectSpawner.HeartSpawner(numHearts);
-            objectSpawner.CarSpawner(numCars);
+            objectSpawner.CarSpawner(numVehicle);
+
+            if (archwayCheck == 2)
+            {
+                roadObjectSpawner.ArchwaySpawner();
+                archwayCheck = 0;
+            }
 
             if (powerUpCheck == 2)
             {
@@ -40,6 +49,7 @@ public class SpawnLevel : MonoBehaviour
                 powerUpCheck = 0;
             }
             roadObjectCheck++;
+            archwayCheck++;
             powerUpCheck++;
         }
         if (roadObjectCheck == 4)
@@ -57,27 +67,31 @@ public class SpawnLevel : MonoBehaviour
 
     public void SecondLevelSpawning()
     {
-        numCoins = 5;
+        numCoins = 8;
         numHearts = 1;
-        numCars = 1;
+        numVehicle = 2;
         powerUpNum = 1;
         if (roadObjectCheck != 4 || roadObjectCheck != 8)
         {
             objectSpawner.CoinSpawner(numCoins);
             objectSpawner.HeartSpawner(numHearts);
-            objectSpawner.CarSpawner(numCars);
+            objectSpawner.CarSpawner(numVehicle);
+            objectSpawner.BusSpawner(numVehicle);
 
-            //objectSpawner.BusSpawner(numCars);
-            //objectSpawner.TruckSpawner(numCars);
-            //roadObjectSpawner.ArchwaySpawner();
-            //roadObjectSpawner.DamagedRoadSpawner();
+            if (archwayCheck == 2)
+            {
+                roadObjectSpawner.ArchwaySpawner();
+                archwayCheck = 0;
+            }
 
-            if (powerUpCheck == 2)
+            if (powerUpCheck == 1)
             {
                 objectSpawner.PowerUpSpawner(powerUpNum);
                 powerUpCheck = 0;
             }
             roadObjectCheck++;
+            damagedCheck++;
+            archwayCheck++;
             powerUpCheck++;
         }
         if (roadObjectCheck == 4)
@@ -95,28 +109,39 @@ public class SpawnLevel : MonoBehaviour
 
     public void ThirdLevelSpawning()
     {
-        numCoins = 5;
+        numCoins = 10;
         numHearts = 1;
-        numCars = 1;
+        numVehicle = 1;
         powerUpNum = 1;
         if (roadObjectCheck != 4 || roadObjectCheck != 8)
         {
             objectSpawner.CoinSpawner(numCoins);
             objectSpawner.HeartSpawner(numHearts);
-            objectSpawner.CarSpawner(numCars);
+            objectSpawner.CarSpawner(numVehicle);
+            objectSpawner.BusSpawner(numVehicle);
+            objectSpawner.TruckSpawner(numVehicle);
 
-            //objectSpawner.BusSpawner(numCars);
-            //objectSpawner.TruckSpawner(numCars);
-            //roadObjectSpawner.ArchwaySpawner();
-            //roadObjectSpawner.DamagedRoadSpawner();
+            if (damagedCheck == 2)
+            {
+                print("DDADADF");
+                roadObjectSpawner.DamagedRoadSpawner();
+                damagedCheck = 0;
+            }
+           if (archwayCheck == 2)
+            {
+                roadObjectSpawner.ArchwaySpawner();
+                archwayCheck = 0;
+            }
 
-            if (powerUpCheck == 2)
+            if (powerUpCheck == 1)
             {
                 objectSpawner.PowerUpSpawner(powerUpNum);
                 powerUpCheck = 0;
             }
             roadObjectCheck++;
+            damagedCheck++;
             powerUpCheck++;
+            archwayCheck++;
         }
         if (roadObjectCheck == 4)
         {

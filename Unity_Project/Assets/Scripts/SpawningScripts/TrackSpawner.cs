@@ -11,7 +11,7 @@ public class TrackSpawner : MonoBehaviour
     public List<GameObject> tracks;
     private Vector3 position;
 
-    private float offset = 80.0f;
+    private float offset = 60.0f;
 
     private int coinStart = 0;
     private int trackCheck = 0;
@@ -67,7 +67,7 @@ public class TrackSpawner : MonoBehaviour
 
     private void LevelCheck() 
     {
-        if (level == 1)
+        if (level == 3)
         {
             spawnLevel.FirstLevelSpawning();
             trackCheck = 0;
@@ -77,7 +77,7 @@ public class TrackSpawner : MonoBehaviour
             spawnLevel.SecondLevelSpawning();
             trackCheck = 0;
         }
-        else if (level == 3)
+        else if (level == 1)
         {
             spawnLevel.ThirdLevelSpawning();
             trackCheck = 0;

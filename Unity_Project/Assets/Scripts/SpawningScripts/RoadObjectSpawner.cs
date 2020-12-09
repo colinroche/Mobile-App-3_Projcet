@@ -26,16 +26,11 @@ public class RoadObjectSpawner : MonoBehaviour
     }
 
     // Spawning objects random between left, middle and right tracks
-    public void RandomSpawner(Transform transform, int numOfObjects)
+    public void RandomSpawner(Transform transform)
     {
-        int spawned = 0;
-        while (spawned < numOfObjects)
-        {
-            position = new Vector3(0.0f, 0f, Random.Range(trackStart.position.z + (offset *2), 
+        position = new Vector3(0.0f, 0f, Random.Range(trackStart.position.z + (offset *2), 
                                      trackEnd.position.z + offset)); 
-            spawned++;
-            Instantiate(transform, position, Quaternion.identity);
-        } 
+        Instantiate(transform, position, Quaternion.identity);
     }
 
     public void SetSpawner(Transform transform)
@@ -46,7 +41,6 @@ public class RoadObjectSpawner : MonoBehaviour
 
     public void ArchwaySpawner()
     {
-        int numObstacle = 1;
         Transform obstacleLeft;
         obstacleLeft = GameObject.Find("RoadObstacleLeft").transform;
 
@@ -58,24 +52,23 @@ public class RoadObjectSpawner : MonoBehaviour
 
         if (pickUpType % 3 == 0)
         {
-            RandomSpawner(obstacleLeft, numObstacle);
+            RandomSpawner(obstacleLeft);
             pickUpType++;
         }
         else if (pickUpType % 3 == 1)
         {
-            RandomSpawner(obstacleMiddle, numObstacle);
+            RandomSpawner(obstacleMiddle);
             pickUpType++;
         }
         else
         {
-            RandomSpawner(obstacleRight, numObstacle);
+            RandomSpawner(obstacleRight);
             pickUpType++;
         }
     }
 
     public void DamagedRoadSpawner()
     {
-        int numHole = 1;
         Transform holeMiddle;
         holeMiddle = GameObject.Find("DamagedRoad Middle").transform;
 
@@ -84,12 +77,12 @@ public class RoadObjectSpawner : MonoBehaviour
 
         if (holeType % 2 == 0)
         {
-            RandomSpawner(holeMiddle, numHole);
+            RandomSpawner(holeMiddle);
             holeType++;
         }
         else
         {
-            RandomSpawner(holeSides, numHole);
+            RandomSpawner(holeSides);
             holeType++;
         }
     }
