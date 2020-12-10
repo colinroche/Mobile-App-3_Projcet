@@ -67,7 +67,7 @@ public class TrackSpawner : MonoBehaviour
 
     private void LevelCheck() 
     {
-        if (level == 3)
+        if (level == 1)
         {
             spawnLevel.FirstLevelSpawning();
             trackCheck = 0;
@@ -77,7 +77,7 @@ public class TrackSpawner : MonoBehaviour
             spawnLevel.SecondLevelSpawning();
             trackCheck = 0;
         }
-        else if (level == 1)
+        else if (level == 3)
         {
             spawnLevel.ThirdLevelSpawning();
             trackCheck = 0;

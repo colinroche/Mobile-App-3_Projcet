@@ -123,7 +123,6 @@ public class SpawnLevel : MonoBehaviour
 
             if (damagedCheck == 2)
             {
-                print("DDADADF");
                 roadObjectSpawner.DamagedRoadSpawner();
                 damagedCheck = 0;
             }

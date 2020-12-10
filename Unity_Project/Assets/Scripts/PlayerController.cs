@@ -6,19 +6,22 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Speed")]
-    [SerializeField] float xSpeed = 5.0f;
-    [SerializeField] float zSpeed = 40.0f;
+    [SerializeField] float xSpeed;
+    [SerializeField] float zSpeed;
     [SerializeField] float mass;
     [SerializeField] Text powerUpText;
 
     float horizontalThrow;
-    
 
+    void Awake () 
+    {
+        DontDestroyOnLoad(transform.gameObject);
+    }  
+ 
     // Start is called before the first frame update
     void Start()
     {
-        mass = zSpeed / 2;
-        GetComponent<Rigidbody>().mass = mass;
+        
     }
 
     // Update is called once per frame
@@ -67,5 +70,18 @@ public class PlayerController : MonoBehaviour
         {
             FindObjectOfType<TrackSpawner>().LevelChange();
         }    
+    }
+
+    public void PlayerSpeed(float speed)
+    {
+        zSpeed = speed;
+        xSpeed = zSpeed / 10;
+        mass = zSpeed / 2;
+        GetComponent<Rigidbody>().mass = mass;
+    }
+
+    public void PlayerPosition()
+    {
+        transform.Translate(0f, 0f, 20f);
     }
 }
