@@ -97,8 +97,11 @@ public class GameSession : MonoBehaviour
     {
         if (playerDeath == true)
         {
-            SceneManager.LoadScene(0); // back to very start
+            player = GameObject.Find("Player");
+            Destroy(player);
             Destroy(gameObject);
+            SceneManager.LoadScene(0); // back to very start
+            
         }
     }
 

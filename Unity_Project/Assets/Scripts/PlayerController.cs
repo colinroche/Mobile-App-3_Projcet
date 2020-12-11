@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Text powerUpText;
 
     float horizontalThrow;
+    
 
     void Awake () 
     {
@@ -21,7 +23,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        transform.position = transform.position + new Vector3(0, 0, 0);
     }
 
     // Update is called once per frame
