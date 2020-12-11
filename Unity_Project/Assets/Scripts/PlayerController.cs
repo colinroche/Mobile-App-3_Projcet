@@ -47,10 +47,10 @@ public class PlayerController : MonoBehaviour
     // Double the player's speed for ten seconds
     IEnumerator ProcessPlayerBoost()
     {
-        zSpeed = zSpeed * 2;
+        zSpeed = zSpeed * 1.5f;
         powerUpText.text = "Boost";
         yield return new WaitForSeconds(10);
-        zSpeed = zSpeed / 2;
+        zSpeed = zSpeed / 1.5f;
         powerUpText.text = "";
     }
 
@@ -72,6 +72,11 @@ public class PlayerController : MonoBehaviour
         {
             FindObjectOfType<TrackSpawner>().LevelChange();
         }    
+
+        if (other.tag == "SceneryChange")
+        {
+            FindObjectOfType<TrackSpawner>().SceneryChange();
+        }  
     }
 
     public void PlayerSpeed(float speed)

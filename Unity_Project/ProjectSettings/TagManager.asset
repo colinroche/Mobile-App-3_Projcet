@@ -9,6 +9,10 @@ TagManager:
   - Top
   - Obstacle
   - LevelChange
+  - Scenery1
+  - Scenery2
+  - Scenery3
+  - SceneryChange
   layers:
   - Default
   - TransparentFX

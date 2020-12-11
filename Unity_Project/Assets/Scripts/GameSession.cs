@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameSession : MonoBehaviour
 {
     private GameObject player;
+    private GameObject playerCanvas;
 
     [Header("Distance Travelled")]
     [SerializeField] int playerDistance = 0;
@@ -99,6 +100,8 @@ public class GameSession : MonoBehaviour
         {
             player = GameObject.Find("Player");
             Destroy(player);
+            playerCanvas = GameObject.Find("Player Canvas");
+            Destroy(playerCanvas);
             Destroy(gameObject);
             SceneManager.LoadScene(0); // back to very start
             

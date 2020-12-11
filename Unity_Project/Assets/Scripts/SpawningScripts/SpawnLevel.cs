@@ -69,7 +69,7 @@ public class SpawnLevel : MonoBehaviour
     {
         numCoins = 8;
         numHearts = 1;
-        numVehicle = 2;
+        numVehicle = 1;
         powerUpNum = 1;
         if (roadObjectCheck != 4 || roadObjectCheck != 8)
         {
@@ -78,6 +78,11 @@ public class SpawnLevel : MonoBehaviour
             objectSpawner.CarSpawner(numVehicle);
             objectSpawner.BusSpawner(numVehicle);
 
+            if (damagedCheck == 3)
+            {
+                roadObjectSpawner.DamagedRoadSpawner();
+                damagedCheck = 0;
+            }
             if (archwayCheck == 2)
             {
                 roadObjectSpawner.ArchwaySpawner();
