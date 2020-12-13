@@ -9,11 +9,11 @@ public class PlayerController : MonoBehaviour
     [Header("Player Speed")]
     [SerializeField] float xSpeed;
     [SerializeField] float zSpeed;
+    [SerializeField] float oldZSpeed;
     [SerializeField] float mass;
     [SerializeField] Text powerUpText;
 
     float horizontalThrow;
-    
 
     void Awake () 
     {
@@ -23,9 +23,24 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = transform.position + new Vector3(0, 0, 0);
+        StartPosition();  
     }
 
+    public void EndSpeed()
+    {
+        oldZSpeed = zSpeed;
+        zSpeed = 0;
+    }
+
+    public void StartSpeed()
+    {
+        zSpeed = oldZSpeed;
+    }
+
+    public void StartPosition()
+    {
+        transform.position = new Vector3(0, 0.5f, 0);
+    }
     // Update is called once per frame
     void Update()
     {

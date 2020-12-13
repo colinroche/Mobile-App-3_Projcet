@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class GameSession : MonoBehaviour
 {
-    private GameObject player;
-    private GameObject playerCanvas;
+    [SerializeField] GameObject player;
+    [SerializeField] GameObject playerCanvas;
+    [SerializeField] GameObject endGame;
+    [SerializeField] GameObject highScoreCanvas;
 
     [Header("Distance Travelled")]
     [SerializeField] int playerDistance = 0;
@@ -26,6 +28,8 @@ public class GameSession : MonoBehaviour
 
     private bool playerDeath = true;
     private bool doubleScore = false;
+    private int highScore;
+    private int score;
 
     private void Awake()
     {
@@ -42,8 +46,6 @@ public class GameSession : MonoBehaviour
 
     private void Start()
     {
-        // Setting up starting values for player
-        player = GameObject.Find("Player");
         distanceText.text = playerDistance.ToString() + "m";
         scoreText.text = playerScore.ToString();
         livesText.text = playerLives.ToString();
@@ -67,7 +69,7 @@ public class GameSession : MonoBehaviour
         }
         else
         {
-            ResetGameSession(); // send back to Main Menu
+            PlayerDeath(); // send back to Main Menu
         }
     }
 
@@ -96,15 +98,51 @@ public class GameSession : MonoBehaviour
 
     public void ResetGameSession()
     {
+        Destroy(player);
+        Destroy(playerCanvas);
+        Destroy(endGame);
+        Destroy(highScoreCanvas);
+        Destroy(gameObject);
+        SceneManager.LoadScene(0); // back to very start
+    }
+
+    public void RestartGameSession()
+    {
+        player.SetActive(true);
+        playerCanvas.SetActive(true);
+        //highScoreCanvas.SetActive(true);
+        endGame.SetActive(false);
+
+        playerScore = 0;
+        playerLives = 3;
+        
+        scoreText.text = playerScore.ToString();
+        livesText.text = playerLives.ToString();
+        powerUpText.text = "";
+
+        FindObjectOfType<PlayerController>().StartSpeed();
+
+        FindObjectOfType<PlayerController>().PlayerPosition();
+        SceneManager.LoadScene(1); // back to very start
+    }
+
+    public void PlayerDeath()
+    {
         if (playerDeath == true)
         {
-            player = GameObject.Find("Player");
-            Destroy(player);
-            playerCanvas = GameObject.Find("Player Canvas");
-            Destroy(playerCanvas);
-            Destroy(gameObject);
-            SceneManager.LoadScene(0); // back to very start
-            
+            FindObjectOfType<PlayerController>().EndSpeed();
+            FindObjectOfType<PlayerController>().StartPosition();
+
+            player.GetComponent<Rigidbody>().useGravity = false;
+
+            score = int.Parse(scoreText.text);
+            FindObjectOfType<HighScore>().HighScoreCheck(score);
+            FindObjectOfType<EndGame>().PlayerScore(score);
+
+            player.SetActive(false);
+            playerCanvas.SetActive(false);
+            //highScoreCanvas.SetActive(false);
+            endGame.SetActive(true);
         }
     }
 

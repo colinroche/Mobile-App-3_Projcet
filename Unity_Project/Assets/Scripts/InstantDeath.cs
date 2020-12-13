@@ -12,6 +12,6 @@ public class InstantDeath : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        FindObjectOfType<GameSession>().ResetGameSession();
+        FindObjectOfType<GameSession>().PlayerDeath();
     }
 }

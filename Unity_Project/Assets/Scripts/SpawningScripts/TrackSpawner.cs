@@ -28,8 +28,6 @@ public class TrackSpawner : MonoBehaviour
 
     private int coinsNum = 5;
 
-    
-
     void Start()
     {
         RenderSettings.skybox = skybox1;
