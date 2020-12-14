@@ -110,7 +110,6 @@ public class GameSession : MonoBehaviour
     {
         player.SetActive(true);
         playerCanvas.SetActive(true);
-        //highScoreCanvas.SetActive(true);
         endGame.SetActive(false);
 
         playerScore = 0;
@@ -141,7 +140,6 @@ public class GameSession : MonoBehaviour
 
             player.SetActive(false);
             playerCanvas.SetActive(false);
-            //highScoreCanvas.SetActive(false);
             endGame.SetActive(true);
         }
     }
