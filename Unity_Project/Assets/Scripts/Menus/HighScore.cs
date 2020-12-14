@@ -11,11 +11,6 @@ public class HighScore : MonoBehaviour
     private int highScore;
     private int scene;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
     void Start()
     {
         highScoreText.text = PlayerPrefs.GetInt("HighScore", 0).ToString();

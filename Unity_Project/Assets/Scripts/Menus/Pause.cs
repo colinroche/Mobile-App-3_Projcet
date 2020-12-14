@@ -9,11 +9,6 @@ public class Pause : MonoBehaviour
     public GameObject pauseMenu;
     private int scene;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))

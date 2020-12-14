@@ -9,7 +9,7 @@ public class GameSession : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] GameObject playerCanvas;
     [SerializeField] GameObject endGame;
-    [SerializeField] GameObject highScoreCanvas;
+    [SerializeField] GameObject persists;
 
     [Header("Distance Travelled")]
     [SerializeField] int playerDistance = 0;
@@ -100,8 +100,7 @@ public class GameSession : MonoBehaviour
     {
         Destroy(player);
         Destroy(playerCanvas);
-        Destroy(endGame);
-        Destroy(highScoreCanvas);
+        Destroy(persists);
         Destroy(gameObject);
         SceneManager.LoadScene(0); // back to very start
     }
@@ -118,6 +117,8 @@ public class GameSession : MonoBehaviour
         scoreText.text = playerScore.ToString();
         livesText.text = playerLives.ToString();
         powerUpText.text = "";
+
+        player.GetComponent<Rigidbody>().useGravity = true;
 
         FindObjectOfType<PlayerController>().StartSpeed();
 

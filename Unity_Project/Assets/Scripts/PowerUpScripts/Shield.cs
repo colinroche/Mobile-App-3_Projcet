@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] AudioClip shieldSound;
+
+
     void Start()
     {
         // Setting Shield Object's collider
@@ -18,6 +20,7 @@ public class Shield : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
         FindObjectOfType<GameSession>().ActivateShield();
+        AudioSource.PlayClipAtPoint(shieldSound, Camera.main.transform.position);
         Destroy(gameObject);
     }
 }

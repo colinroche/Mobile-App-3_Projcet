@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CoinMultipler : MonoBehaviour
 {
+    [SerializeField] AudioClip coinMultiSound;
+
     void Start()
     {
         // Setting box collider on multiplier object
@@ -16,6 +18,7 @@ public class CoinMultipler : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
         FindObjectOfType<GameSession>().CoinMultiply();
+        AudioSource.PlayClipAtPoint(coinMultiSound, Camera.main.transform.position);
         Destroy(gameObject);
     }
 }

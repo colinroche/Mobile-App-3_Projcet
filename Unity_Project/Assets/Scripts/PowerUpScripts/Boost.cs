@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Boost : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] AudioClip boostSound;
+
     void Start()
     {
         // Setting Boost Object's collider
@@ -18,6 +19,7 @@ public class Boost : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
         FindObjectOfType<PlayerController>().PlayerBoost();
+        AudioSource.PlayClipAtPoint(boostSound, Camera.main.transform.position);
         Destroy(gameObject);
     }
 }

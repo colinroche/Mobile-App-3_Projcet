@@ -426,6 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f844a7aa4042c4ea7731057f5d979f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinMultiSound: {fileID: 8300000, guid: beb5b46fe33edf148a0daa802a386bd9, type: 3}
 --- !u!1 &339086359
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,11 +1067,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f494957cbd9ff2b498af112b5c3ea4d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2700
+      value: -2200
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f494957cbd9ff2b498af112b5c3ea4d8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f494957cbd9ff2b498af112b5c3ea4d8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1114,7 +1115,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f494957cbd9ff2b498af112b5c3ea4d8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f494957cbd9ff2b498af112b5c3ea4d8, type: 3}
       propertyPath: m_LocalScale.z
@@ -1528,6 +1529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c1624a0755fe41489135ef53d4fe45b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boostSound: {fileID: 8300000, guid: e9bc800cb24ffc845bcc77c49ab64d31, type: 3}
 --- !u!1 &1108408136
 GameObject:
   m_ObjectHideFlags: 0
@@ -2145,6 +2147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48cdb4233be51048999d5212027ad73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeSound: {fileID: 8300000, guid: 15e9f634e944e104dab8ac20d84b5e12, type: 3}
 --- !u!1 &1422929521
 GameObject:
   m_ObjectHideFlags: 0
@@ -2784,6 +2787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7de41a4bb61758d4a8bec77b15e83b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shieldSound: {fileID: 8300000, guid: 7da886a070ddeee4ba6bc0fd415e462c, type: 3}
 --- !u!1 &1891479748
 GameObject:
   m_ObjectHideFlags: 0
@@ -3054,6 +3058,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 517312297623011894, guid: d8b7523d7bb870942914d5722b0e0fee,
+        type: 3}
+      propertyPath: coinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: cb8d1f9f8bcfd7744bc5c09e074bdeb6, type: 3}
     - target: {fileID: 517312298565241650, guid: d8b7523d7bb870942914d5722b0e0fee,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3129,11 +3138,31 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5968044317305965705, guid: d8b7523d7bb870942914d5722b0e0fee,
+        type: 3}
+      propertyPath: coinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: cb8d1f9f8bcfd7744bc5c09e074bdeb6, type: 3}
+    - target: {fileID: 7337278774688049136, guid: d8b7523d7bb870942914d5722b0e0fee,
+        type: 3}
+      propertyPath: coinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: cb8d1f9f8bcfd7744bc5c09e074bdeb6, type: 3}
     - target: {fileID: 8396923454111323183, guid: d8b7523d7bb870942914d5722b0e0fee,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8795908775950312583, guid: d8b7523d7bb870942914d5722b0e0fee,
+        type: 3}
+      propertyPath: coinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: cb8d1f9f8bcfd7744bc5c09e074bdeb6, type: 3}
+    - target: {fileID: 8836409387189864629, guid: d8b7523d7bb870942914d5722b0e0fee,
+        type: 3}
+      propertyPath: coinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: cb8d1f9f8bcfd7744bc5c09e074bdeb6, type: 3}
     m_RemovedComponents:
     - {fileID: 6487613148688602448, guid: d8b7523d7bb870942914d5722b0e0fee, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d8b7523d7bb870942914d5722b0e0fee, type: 3}
