@@ -6,6 +6,7 @@ public class Coin : MonoBehaviour
 { 
     private float rotateSpeed = 150.0f;
     [SerializeField] int coinValue = 0;
+    [SerializeField] AudioClip coinSound;
 
     void Start()
     {
@@ -23,6 +24,7 @@ public class Coin : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
         FindObjectOfType<GameSession>().AddScore(coinValue);
+        AudioSource.PlayClipAtPoint(coinSound, Camera.main.transform.position);
         Destroy(gameObject);
     }
 }

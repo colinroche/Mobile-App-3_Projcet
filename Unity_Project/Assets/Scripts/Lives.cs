@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Lives : MonoBehaviour
 {
+    [SerializeField] AudioClip lifeSound;
+
     void Start()
     {
         Destroy(gameObject.GetComponent<BoxCollider>());
@@ -15,6 +17,7 @@ public class Lives : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
         FindObjectOfType<GameSession>().ProcessPlayerLives();
+        AudioSource.PlayClipAtPoint(lifeSound, Camera.main.transform.position);
         Destroy(gameObject);
     }
 }
