@@ -81,7 +81,7 @@ public class SpawnLevel : MonoBehaviour
             if (damagedCheck == 3)
             {
                 roadObjectSpawner.DamagedRoadSpawner();
-                damagedCheck = 0;
+                damagedCheck = -1;
             }
             if (archwayCheck == 2)
             {
@@ -129,7 +129,7 @@ public class SpawnLevel : MonoBehaviour
             if (damagedCheck == 2)
             {
                 roadObjectSpawner.DamagedRoadSpawner();
-                damagedCheck = 0;
+                damagedCheck = -1;
             }
            if (archwayCheck == 2)
             {

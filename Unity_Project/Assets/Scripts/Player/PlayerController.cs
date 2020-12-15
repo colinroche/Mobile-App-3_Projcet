@@ -11,7 +11,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float zSpeed;
     [SerializeField] float oldZSpeed;
     [SerializeField] float mass;
+
+    [Header("Other")]
     [SerializeField] Text powerUpText;
+    [SerializeField] AudioClip successSound;
+
 
     float horizontalThrow;
 
@@ -87,6 +91,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.tag == "LevelChange")
         {
+            AudioSource.PlayClipAtPoint(successSound, Camera.main.transform.position);
             FindObjectOfType<TrackSpawner>().LevelChange();
         }    
 

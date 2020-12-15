@@ -10,11 +10,6 @@ public class EndGame : MonoBehaviour
     [SerializeField] Text scoreText;
     private int playerScore = 0;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
     public void Reset()
     {
         FindObjectOfType<GameSession>().ResetGameSession();

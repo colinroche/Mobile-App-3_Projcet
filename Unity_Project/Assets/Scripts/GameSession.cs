@@ -11,6 +11,11 @@ public class GameSession : MonoBehaviour
     [SerializeField] GameObject endGame;
     [SerializeField] GameObject persists;
 
+    [Header("Player Death")]
+    [SerializeField] GameObject Event;
+    [SerializeField] AudioClip deathSound;
+    [SerializeField] AudioClip damageSound;
+
     [Header("Distance Travelled")]
     [SerializeField] int playerDistance = 0;
     [SerializeField] Text distanceText;
@@ -91,6 +96,7 @@ public class GameSession : MonoBehaviour
     {
         if (playerDeath == true)
         {
+            AudioSource.PlayClipAtPoint(damageSound, Camera.main.transform.position);
             playerLives--;
             livesText.text = playerLives.ToString();
         }
@@ -130,6 +136,8 @@ public class GameSession : MonoBehaviour
     {
         if (playerDeath == true)
         {
+            AudioSource.PlayClipAtPoint(deathSound, Event.transform.position);
+            
             FindObjectOfType<PlayerController>().EndSpeed();
             FindObjectOfType<PlayerController>().StartPosition();
 

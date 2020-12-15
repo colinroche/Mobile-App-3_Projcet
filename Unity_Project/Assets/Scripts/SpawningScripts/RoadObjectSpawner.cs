@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RoadObjectSpawner : MonoBehaviour
 {
+    [SerializeField] Transform parentItem;
     private Vector3 position;
 
     private Transform trackStart;
@@ -11,7 +12,6 @@ public class RoadObjectSpawner : MonoBehaviour
     private Transform trackRamp;
 
     private float offset = 80.0f;
-
     private int pickUpType = 0;
     private int holeType = 0;
 
@@ -30,13 +30,17 @@ public class RoadObjectSpawner : MonoBehaviour
     {
         position = new Vector3(0.0f, 0f, Random.Range(trackStart.position.z + (offset *2), 
                                      trackEnd.position.z + offset)); 
-        Instantiate(transform, position, Quaternion.identity);
+        Transform spawn = Instantiate(transform, position, Quaternion.identity);
+        spawn.parent = parentItem;
+        Destroy(spawn.gameObject, 10.0f);
     }
 
     public void SetSpawner(Transform transform)
     {
         position = new Vector3(0f, 0f, trackRamp.position.z + offset); 
-        Instantiate(transform, position, Quaternion.identity);
+        Transform spawn = Instantiate(transform, position, Quaternion.identity);
+        spawn.parent = parentItem;
+        Destroy(spawn.gameObject, 10.0f);
     }
 
     public void ArchwaySpawner()

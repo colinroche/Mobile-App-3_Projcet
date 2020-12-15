@@ -31,17 +31,17 @@ public class Menu : MonoBehaviour
 
     public void PickBlue()
     {
-        float speed = 40.0f;
+        float speed = 50.0f;
         FindObjectOfType<PlayerController>().PlayerSpeed(speed);
     }
      public void PickGreen()
     {
-        float speed = 50.0f;
+        float speed = 60.0f;
         FindObjectOfType<PlayerController>().PlayerSpeed(speed);
     }
      public void PickRed()
     {
-        float speed = 60.0f;
+        float speed = 70.0f;
         FindObjectOfType<PlayerController>().PlayerSpeed(speed);
     }
 

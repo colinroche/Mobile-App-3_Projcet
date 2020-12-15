@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
 {
+    [SerializeField] Transform parentItem;
+
     private Vector3 position;
 
     private Transform trackStart;
     private Transform trackEnd;
 
     private float offset = 80.0f;
-
     private int powerUpType = 0;
 
     // Start is called before the first frame update
@@ -43,7 +44,9 @@ public class ObjectSpawner : MonoBehaviour
                                             trackEnd.position.z + offset));
             }
             spawned++;
-            Instantiate(transform, position, Quaternion.identity);
+            Transform spawn = Instantiate(transform, position, Quaternion.identity);
+            spawn.parent = parentItem;
+            Destroy(spawn.gameObject, 10.0f);
         } 
     }
 

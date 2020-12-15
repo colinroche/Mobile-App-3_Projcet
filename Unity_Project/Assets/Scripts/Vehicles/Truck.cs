@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Truck : MonoBehaviour
 {
+    [SerializeField] AudioClip vehicleSound;
+
     void Start()
     {
         Destroy(gameObject.GetComponent<BoxCollider>());
@@ -14,6 +16,6 @@ public class Truck : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        FindObjectOfType<GameSession>().ResetGameSession();
+        AudioSource.PlayClipAtPoint(vehicleSound, Camera.main.transform.position);
     }
 }
